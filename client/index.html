@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>melonJS Template</title>
+    <link href='http://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/game.css">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+<!-- Canvas placeholder -->
+<div id="screen">
+</div>
+
+<div id="loginModal" class="modal fade" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Welcome to Lords of Tartania</h3>
+            </div>
+            <div class="modal-body">
+                <div class=""
+                <div class="alert alert-warning">That username is already in use!</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Enter Tartania!</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="/socket.io/socket.io.js"></script>
+
+<!-- melonJS Library -->
+<!-- build:js js/app.min.js -->
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/melonJS-1.0.0.js"></script>
+
+<!-- Plugin(s) -->
+<script type="text/javascript" src="lib/plugins/debugPanel.js"></script>
+<script type="text/javascript" src="lib/plugins/astar.js"></script>
+
+<!-- Game Scripts -->
+<script type="text/javascript" src="js/game.js"></script>
+<script type="text/javascript" src="js/resources.js"></script>
+<script type="text/javascript" src="js/networking/network.js"></script>
+
+<script type="text/javascript" src="js/entities/PathFollower.js"></script>
+<script type="text/javascript" src="js/entities/entities.js"></script>
+
+<script type="text/javascript" src="js/screens/title.js"></script>
+<script type="text/javascript" src="js/screens/play.js"></script>
+<script type="text/javascript" src="js/gui/guiElements.js"></script>
+<script type="text/javascript" src="js/gui/TextWindow.js"></script>
+<!-- /build -->
+<!-- Bootstrap & Mobile optimization tricks -->
+<script type="text/javascript">
+
+    $('#loginModal').modal('show');
+
+    window.onReady(function onReady() {
+        // Mobile browser hacks
+        if (me.device.isMobile && !navigator.isCocoonJS) {
+            // Prevent the webview from moving on a swipe
+            window.document.addEventListener("touchmove", function (e) {
+                e.preventDefault();
+                window.scroll(0, 0);
+                return false;
+            }, false);
+
+            // Scroll away mobile GUI
+            (function () {
+                window.scrollTo(0, 1);
+                me.video.onresize(null);
+            }).defer();
+
+            me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
+                window.scrollTo(0, 1);
+            });
+        }
+    });
+</script>
+</body>
+</html>

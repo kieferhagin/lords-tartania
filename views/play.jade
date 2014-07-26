@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+    head
+        title Lords of Tartania
+        link(href='http://fonts.googleapis.com/css?family=Metal+Mania', rel='stylesheet', type='text/css')
+        link(rel='stylesheet', type='text/css', href='lib/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', type='text/css', href='lib/font-awesome/css/font-awesome.min.css')
+        link(rel='stylesheet', type='text/css', media='screen', href='css/game.css')
+        meta#viewport(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+        meta(name='apple-mobile-web-app-capable', content='yes')
+        meta(name='mobile-web-app-capable', content='yes')
+        meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    body
+        //
+           Canvas placeholder
+        #screen
+        #loginModal.modal.fade(data-backdrop='static')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h4.modal-title Welcome to Lords of Tartania
+                    .modal-body
+                        form(role='form')
+                            .form-group
+                                label(for='mapPassword') Desired Username
+                                input#usernameTxt.form-control(type='text')
+                            span.help-block Enter the username you wish to play with
+                    .modal-footer
+                        button#loginEnterBtn.btn.btn-primary(type='button', data-dismiss='modal') Enter Tartania!
+        script(src='/socket.io/socket.io.js')
+        //
+           melonJS Library
+        //
+           build:js js/app.min.js
+        script(type='text/javascript', src='lib/jquery.js')
+        script(type='text/javascript', src='lib/underscore-min.js')
+        script(type='text/javascript', src='lib/bootstrap/js/bootstrap.min.js')
+        script(type='text/javascript', src='lib/melonJS-1.0.0.js')
+        //
+           Plugin(s)
+        script(type='text/javascript', src='lib/plugins/debugPanel.js')
+        script(type='text/javascript', src='lib/plugins/astar.js')
+        //
+           Game Scripts
+        script(type='text/javascript', src='js/game.js')
+        script(type='text/javascript', src='js/models/ItemModels.js')
+        script(type='text/javascript', src='js/models/Items.js')
+        script(type='text/javascript', src='js/resources.js')
+        script(type='text/javascript', src='js/networking/network.js')
+        script(type='text/javascript', src='js/entities/PathFollower.js')
+        script(type='text/javascript', src='js/entities/LivingEntity.js')
+        script(type='text/javascript', src='js/entities/entities.js')
+        script(type='text/javascript', src='js/entities/objects.js')
+        script(type='text/javascript', src='js/screens/title.js')
+        script(type='text/javascript', src='js/screens/play.js')
+        script(type='text/javascript', src='js/util/events.js')
+        script(type='text/javascript', src='js/gui/guiElements.js')
+        script(type='text/javascript', src='js/gui/TextWindow.js')
+        script(type='text/javascript', src='js/gui/MenuWindows.js')
+        script(type='text/javascript', src='js/gui/CharacterDesigner.js')
+        script(type='text/javascript', src='js/gui/BottomMenuBar.js')
+        script(type='text/javascript', src='js/site/play.js')
+

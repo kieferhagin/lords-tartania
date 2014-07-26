@@ -1,0 +1,124 @@
+@import "colors";
+
+@headingFont: 'Metal Mania', cursive;
+
+body {
+	background-color: #000;
+
+	/* Allow mouse dragging. */
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+
+	/* disable touch panning/zooming */
+	-ms-touch-action: none;
+	touch-action: none;
+
+	/* Allow canvas to hit the edges of the browser viewport. */
+	margin: 0;
+}
+
+
+.heading{
+  font-family: @headingFont;
+}
+
+h1, h2, h3, h4 {
+  .heading;
+}
+
+  #characterDesigner{
+    .selection-col{
+      text-align: center;
+    }
+    @media only screen and (min-width: 1024px){
+      .modal-dialog{
+        width: 65%;
+      }
+    }
+  }
+
+#screen {
+  color: @menu;
+  position: relative;
+
+  canvas {
+    margin: auto;
+
+    /* Hide the gap for font descenders. */
+    display: block;
+
+    /* disable scaling interpolation */
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+  input {
+    position: absolute;
+    z-index: 2;
+  }
+
+  a {
+    color: @menu;
+    &:hover {
+      background-color: transparent;
+      color: @highlight;
+    }
+  }
+
+  .static-ui{
+    background-color: @menubg-transparent;
+    padding: 5px;
+    border: darken(@menubg-transparent, 5%) double 4px;
+  }
+
+  .item-slot{
+    background-color: fade(@highlight, 20%);
+  }
+
+  .gui-heading{
+    font-size: 1.75em;
+    .heading;
+  }
+
+  .level-field{
+    margin-top: -10px;
+    font-size: 1.5em;
+    color: @highlight;
+    .heading;
+  }
+
+  .dropdown-menu{
+    background-color: @menubg-transparent;
+  }
+
+  .nav-pills{
+    li > a {
+      color: @menu-inactive;
+      &:hover {
+        background-color: transparent;
+        color: @highlight;
+      }
+    }
+    li.active > a {
+      color: @menu;
+      background-color: @active-element-bg;
+    }
+  }
+
+  .multi-select-menu{
+    li > a {
+      color: @menu;
+    }
+    li.active > a {
+      &:hover {
+        color: @highlight;
+      }
+    }
+  }
+}

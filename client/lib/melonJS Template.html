@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>melonJS Template</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="./melonJS Template_files/index.css">
+		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<style type="text/css"></style></head>
+	<body>
+		<!-- Canvas placeholder -->
+		<div id="screen"><canvas width="641" height="481"></canvas></div>
+
+		<!-- melonJS Library -->
+		<!-- build:js js/app.min.js -->
+		<script type="text/javascript" src="./melonJS Template_files/melonJS-1.0.0.js"></script>
+
+		<!-- Plugin(s) -->
+		<script type="text/javascript" src="./melonJS Template_files/debugPanel.js"></script>
+		
+		<!-- Game Scripts -->
+		<script type="text/javascript" src="./melonJS Template_files/game.js"></script>
+		<script type="text/javascript" src="./melonJS Template_files/resources.js"></script>
+
+		<script type="text/javascript" src="./melonJS Template_files/entities.js"></script>
+		<script type="text/javascript" src="./melonJS Template_files/HUD.js"></script>
+
+		<script type="text/javascript" src="./melonJS Template_files/title.js"></script>
+		<script type="text/javascript" src="./melonJS Template_files/play.js"></script>
+		<!-- /build -->
+		<!-- Bootstrap & Mobile optimization tricks -->
+		<script type="text/javascript">
+			window.onReady(function onReady() {
+				game.onload();
+
+				// Mobile browser hacks
+				if (me.device.isMobile && !navigator.isCocoonJS) {
+					// Prevent the webview from moving on a swipe
+					window.document.addEventListener("touchmove", function (e) {
+						e.preventDefault();
+						window.scroll(0, 0);
+						return false;
+					}, false);
+
+					// Scroll away mobile GUI
+					(function () {
+						window.scrollTo(0, 1);
+						me.video.onresize(null);
+					}).defer();
+
+					me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
+						window.scrollTo(0, 1);
+					});
+				}
+			});
+		</script>
+	
+
+</body></html>

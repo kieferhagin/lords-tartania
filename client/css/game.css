@@ -1,0 +1,96 @@
+body {
+  background-color: #000;
+  /* Allow mouse dragging. */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* disable touch panning/zooming */
+  -ms-touch-action: none;
+  touch-action: none;
+  /* Allow canvas to hit the edges of the browser viewport. */
+  margin: 0;
+}
+.heading {
+  font-family: 'Metal Mania', cursive;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Metal Mania', cursive;
+}
+#characterDesigner .selection-col {
+  text-align: center;
+}
+@media only screen and (min-width: 1024px) {
+  #characterDesigner .modal-dialog {
+    width: 65%;
+  }
+}
+#screen {
+  color: #ffffff;
+  position: relative;
+}
+#screen canvas {
+  margin: auto;
+  /* Hide the gap for font descenders. */
+  display: block;
+  /* disable scaling interpolation */
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+#screen input {
+  position: absolute;
+  z-index: 2;
+}
+#screen a {
+  color: #ffffff;
+}
+#screen a:hover {
+  background-color: transparent;
+  color: #ff0000;
+}
+#screen .static-ui {
+  background-color: rgba(0, 51, 153, 0.6);
+  padding: 5px;
+  border: rgba(0, 43, 128, 0.6) double 4px;
+}
+#screen .item-slot {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+#screen .gui-heading {
+  font-size: 1.75em;
+  font-family: 'Metal Mania', cursive;
+}
+#screen .level-field {
+  margin-top: -10px;
+  font-size: 1.5em;
+  color: #ff0000;
+  font-family: 'Metal Mania', cursive;
+}
+#screen .dropdown-menu {
+  background-color: rgba(0, 51, 153, 0.6);
+}
+#screen .nav-pills li > a {
+  color: #808080;
+}
+#screen .nav-pills li > a:hover {
+  background-color: transparent;
+  color: #ff0000;
+}
+#screen .nav-pills li.active > a {
+  color: #ffffff;
+  background-color: rgba(51, 119, 255, 0.6);
+}
+#screen .multi-select-menu li > a {
+  color: #ffffff;
+}
+#screen .multi-select-menu li.active > a:hover {
+  color: #ff0000;
+}
